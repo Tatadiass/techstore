@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TechStore - Catálogo de Produtos</title>
+</head>
+<body>
+<h1>Catálogo de Produtos</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}">1</td>
+        <td th:text="${product.name}">Produto X</td>
+        <td th:text="${product.description}">Descrição</td>
+        <td th:text="${#numbers.formatDecimal(product.price, 1, 'POINT', 2, 'COMMA')}">
+            0,00
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/">Voltar para Home</a></p>
+<p><a href="/products/new">Cadastrar novo produto</a></p>
+
+</body>
+</html>
